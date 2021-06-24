@@ -13,6 +13,15 @@
 			> img {//pegando somente o img do header content
 				max-height: 45px;
 			}
+
+			> div {
+				display: flex;
+				gap: 16px;//distanciamento entre elementos
+
+				button {
+					height: 40px;
+				}
+			}
 		}
 	}
 

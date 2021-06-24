@@ -1,10 +1,17 @@
 import { ButtonHTMLAttributes } from 'react';
 import '../styles/button.scss';
 
-type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement>;
+//O parâmetro isOutlined é opcional
+type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
+	isOutlined?: boolean
+};
 
-export function Button(props: ButtonProps){
+//todos os demais parâmetros que não for o isOutlined, ficam no props
+export function Button({ isOutlined = false, ...props}: ButtonProps){
 	return (
-		<button className="button" {...props} />// estes pontos são conhecidos como 'spred operation' seria como percorrer um array de propriedades
+		<button 
+			className={`button ${isOutlined ? 'outlined' :''}`} 
+			{...props} 
+		/>// estes pontos são conhecidos como 'spred operation' seria como percorrer um array de propriedades
 	)
 }
